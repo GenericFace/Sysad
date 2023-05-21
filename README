@@ -1,0 +1,21 @@
+So basically
+
+Genstudent.sh: 
+
+go sudo -i before running it, nothing else really
+
+Permit.sh:
+
+install acl before using this, command: sudo apt acl
+
+and go sudo -i
+
+NOTE: I havent added passwords to any users, which i will be doing soon. So for now, to switch users
+      use the command "su <username>"
+      
+      For student user, the details i use are
+      
+      Name:Ola, Hostel:Opal , Room:10
+      Name:Jennee, Hostel:GarnetA, Room:0
+      
+      BEFORE DOING FEEDEFAULTERS ALIAS, run FEEPAYER alias to see the changes, thats where i used Ola account
