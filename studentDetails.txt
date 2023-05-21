@@ -1,4 +1,3 @@
-Name RollNumber Hostel Room Mess MessPref
 Jennee 102122001 GarnetA 0 1 -
 Jacquelin 102122002 GarnetA 0 3 -
 Barbaraanne 102122003 GarnetA 1 1 -
