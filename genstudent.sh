@@ -19,9 +19,10 @@ function dept(){
 }
 
 function HADfile(){
-  sudo useradd -m -s /bin/bash -d /home/had -p "123" had
-  chmod 777 /home/had
+  sudo useradd -m -s /bin/bash -d /home/had had
   sudo touch /home/had/mess.txt
+  sudo chmod -R 777 /home/had
+  echo "had:123" | sudo chpasswd
 
   echo "Mess1: 0
 Mess2: 0
@@ -35,8 +36,9 @@ Student Preferences:
 function hostel(){
   for i in "GarnetA" "GarnetB" "Agate" "Opal"
   do
-    sudo useradd -m -s /bin/bash -d /home/$i -p "123" $i
-    chmod 777 /home/$i
+    sudo useradd -m -s /bin/bash -d /home/$i $i
+    echo "$i:123" | sudo chpasswd
+    sudo chmod -R 777 /home/$i
     sudo touch /home/$i/announcements.txt
     sudo touch /home/$i/stayout.txt
     sudo touch /home/$i/feeDefaulters.txt
@@ -50,8 +52,9 @@ function students(){
     hostel1=$(echo "$line2" | cut -d " " -f 3)
     room=$(echo "$line2" | cut -d " " -f 4)
     name=$(echo "$line2" | cut -d " " -f 1)
-    sudo useradd -m -s /bin/bash -d /home/$hostel1/$room/$name -p "123" $name
-    chmod 777 /home/$hostel1/$room/$name
+    sudo useradd -m -s /bin/bash -d /home/$hostel1/$room/$name $name
+    echo "$name:123" | sudo chpasswd
+    sudo chmod -R 777 /home/$hostel1/$room/$name
 
     sudo touch /home/$hostel1/$room/$name/userdetails.txt
 
