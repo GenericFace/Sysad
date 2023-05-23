@@ -2,8 +2,7 @@ So basically
 
 FIRSTLY:
 
-create a source folder on your users desktop, paste all these .sh and source files into that folder
-then use sudo -i and change directory into that /home/<user>/desktop/<folder_you_created>
+create a /home/masteruser folder and store all the bashscripts in there.
 
 ill make changes to the .bashrc file and add alias changes very soon.
 
