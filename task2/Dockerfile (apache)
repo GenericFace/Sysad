@@ -1,0 +1,9 @@
+FROM httpd:latest
+
+COPY /home/had/mess.txt /var/www/html/
+
+RUN apt
+
+EXPOSE 80
+
+CMD ["httpd-foreground"]
