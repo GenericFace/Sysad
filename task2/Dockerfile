@@ -30,6 +30,8 @@ RUN chmod +x /app/genstudent.sh && \
     chmod +x /app/allocatemess.sh && \
     chmod +x /app/signout.sh && \
     ./genstudent.sh
+    
+RUN sed -i 's/localhost/gamma-z.hm/g' /etc/hosts
 
 # Expose the required ports
 EXPOSE 80 443
