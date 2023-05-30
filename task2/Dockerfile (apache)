@@ -2,8 +2,11 @@ FROM httpd:latest
 
 COPY /home/had/mess.txt /var/www/html/
 
-RUN apt
-
+RUN apt-get update && \
+    apt-get install -y sudo && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+    
 EXPOSE 80
 
 CMD ["httpd-foreground"]
