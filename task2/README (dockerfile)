@@ -1,0 +1,13 @@
+
+
+first copy the dockerfile to /task folder created in the task 1 
+
+then cd /task 
+
+install docker and then run the following commands:
+
+docker build -t my_server .
+
+docker run -d -p 80:80 -p 443:443 --name gammaz my_server
+
+docker exec -it gammaz bash
