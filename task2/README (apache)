@@ -1,0 +1,24 @@
+After creating the container in Dockerfile (apache), proceed with the following steps
+
+cd /etc/apache2/sites-available
+
+vi gammaz.hm.conf 
+
+  paste these following lines inside the file,
+  
+  ServerName gammaz.hm.com
+  ServerAlias gammaz.hm.com
+  
+  change "DocumentRoot /var/www/html" to "DocumentRoot /var/www/gammaz.hm"
+  
+service apache2 start
+
+a2ensite gammaz.hm.conf
+
+a2dissite 000-default.conf
+
+service apache2 reload 
+
+and if you type in localhost on your host's browser, u should be able to see the mess.txt file
+
+NOTE: use "docker run -p 80:80 ......" while running the container to specify 80 as the exposed port 
