@@ -1,0 +1,20 @@
+Run the following commands
+
+docker-compose up --build
+
+run "docker ps" and find the id of the container running ubuntu server
+find the id of database server too 
+
+docker exec -it <container_id_server> bash
+
+NOTE: if gammaz.sql doesnt exist, execute the generate.sh file 
+
+After entering inside the container, Run
+
+psql -h <container_id_database> -U postgres
+
+After entering the postgress environment, Run
+
+\i gammaz.sql
+
+The database is created
