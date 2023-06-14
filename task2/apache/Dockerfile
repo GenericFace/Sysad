@@ -5,7 +5,7 @@ FROM ubuntu:latest
 WORKDIR /app
 
 # Copy the server setup files to the container
-COPY /src /app
+COPY . /app
 
 # Install necessary dependencies
 RUN apt-get update && \
@@ -24,12 +24,14 @@ RUN chmod +x /app/genstudent.sh && \
     chmod +x /app/feedefaulter.sh && \
     chmod +x /app/allocatemess.sh && \
     chmod +x /app/signout.sh && \
-    ./genstudent.sh && \
-    mkdir -p /var/www/gammaz.hm && \
-    cp /home/had/mess.txt /var/www/gammaz.hm/mess.txt && \
-    cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/gammaz.hm.conf 
+    chmod +x apa.sh && \
+    ./genstudent.sh
 
 EXPOSE 80 
+
+RUN ./apa.sh
+
+RUN service apache2 start
 
 CMD ["tail", "-f", "/dev/null"]
 
