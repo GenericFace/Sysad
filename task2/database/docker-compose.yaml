@@ -1,22 +1,28 @@
 version: '3'
-services:
-  db:
-    image: postgres:latest
-    volumes:
-      - db_data:/var/lib/postgresql/data
-    environment:
-      - POSTGRES_PASSWORD=yourmom  # Specify a password here
-    ports:
-      - "5432:5432"
 
+services:
   server:
-    build:
+    container_name: gammaz
+    build: 
       context: .
       dockerfile: Dockerfile
     ports:
       - "80:80"
-    depends_on:
-      - db
+    volumes:
+      - shared-data:/app/shared
+
+  db:
+    container_name: database
+    image: postgres
+    environment:
+      - POSTGRES_DB=gammaz
+      - POSTGRES_USER=sen
+      - POSTGRES_PASSWORD=1234
+    ports:
+      - "5432:5432"
+    volumes:
+      - shared-data:/app/shared
+    command: bash -c "cp /app/shared/gammaz.sql /docker-entrypoint-initdb.d/gammaz.sql && docker-entrypoint.sh postgres"
 
 volumes:
-  db_data:
+  shared-data:
