@@ -26,6 +26,7 @@ RUN chmod +x /app/genstudent.sh && \
     chmod +x /app/allocatemess.sh && \
     chmod +x /app/signout.sh && \
     chmod +x /app/generate.sh && \
+    mkdir /app/shared && \
     ./genstudent.sh
 
 RUN ./ok.sh
