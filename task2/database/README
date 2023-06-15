@@ -1,20 +1,9 @@
-Run the following commands
+Run docker-compose up --build
 
-docker-compose up --build
+If the database container doesnt implement the gammaz.sql file immediately, run
 
-run "docker ps" and find the id of the container running ubuntu server
-find the id of database server too 
+docker exec -it database bash
 
-docker exec -it <container_id_server> bash
+psql -U sen -d gammaz
 
-NOTE: if gammaz.sql doesnt exist, execute the generate.sh file 
-
-After entering inside the container, Run
-
-psql -h <container_id_database> -U postgres
-
-After entering the postgress environment, Run
-
-\i gammaz.sql
-
-The database is created
+\i /app/shared/gammaz.sql
