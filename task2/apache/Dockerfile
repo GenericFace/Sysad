@@ -24,7 +24,7 @@ RUN chmod +x /app/genstudent.sh && \
     chmod +x /app/feedefaulter.sh && \
     chmod +x /app/allocatemess.sh && \
     chmod +x /app/signout.sh && \
-    chmod +x apa.sh && \
+    chmod +x /app/apa.sh && \
     ./genstudent.sh
 
 EXPOSE 80 
