@@ -6,7 +6,7 @@ import gzip
 import shutil
 
 conn = psycopg2.connect(
-    host="localhost",
+    host="db",
     database="postgres",
     user="postgres",
     password="1234"
