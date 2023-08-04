@@ -4,7 +4,7 @@ docker build -t crazy .
 
 RUN COMMAND:
 
-docker run -it --name gammaz -p 80:80 --rm crazy
+docker run -it --name gammaz_a -p 80:80 --rm crazy
 
 If the gammaz.hm.com isnt working and its only serving on localhost, then 
 
@@ -12,4 +12,4 @@ change "localhost" to "gammaz.hm.com" in /etc/hosts using the vi editor
 
 If apache doesnt run, run the command 
 
-docker -it exec gammaz bash
+docker -it exec gammaz_a bash
