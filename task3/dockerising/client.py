@@ -44,7 +44,8 @@ if choice == "UP":
 filename = input("Enter the name of the file: ")
 
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-client.connect(('127.0.0.1', 8383))
+host = socket.gethostbyname("localhost")
+client.connect((host, 8383))
 
 def receive():
     while True:
