@@ -6,4 +6,4 @@ COPY requirements.txt /app
 COPY server.py /app/server.py
 RUN pip install -r requirements.txt
 
-CMD ["python", "server.py"]
+CMD ["tail","-f", "/dev/null"]
