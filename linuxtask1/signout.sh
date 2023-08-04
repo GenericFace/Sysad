@@ -1,6 +1,8 @@
 #!/bin/bash
 
+#function within a function cuz i can
 function askperm() {
+  sudo -i
   echo "Enter the date until which you want to stay out of campus (Month DD)"
   read -r dte
   echo "$name wants to stay out of the campus until '$dte'" >> "/home/$hostel/stayout.txt"
