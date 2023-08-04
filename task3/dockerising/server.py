@@ -13,7 +13,7 @@ conn = psycopg2.connect(
 )
 cur = conn.cursor()
 
-host = "127.0.0.1"
+host = socket.gethostbyname(socket.gethostname())
 port = 8383
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -53,9 +53,10 @@ def upload(client, user_name):
     path = client.recv(1024).decode('ascii')
     client.send('...'.encode('ascii'))
     filename = client.recv(1024).decode('ascii')
-    if os.path.exists(path):
+    file_path = f"/app/data/{filename}"
+    if os.path.exists(file_path):
         output_file = f"{filename}.gz"
-        compress(path, output_file)
+        compress(file_path, output_file)
     else:
         client.send('file doesnt exist'.encode('ascii'))
         return
