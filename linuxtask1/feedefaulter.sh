@@ -20,7 +20,8 @@ function defaulter(){
    room=$(echo "$line3" | cut -d " " -f 4)
    name=$(echo "$line3" | cut -d " " -f 1)
    for stdfile in /home/$hostel/$room/$name; do
-
+   
+   if [[ -d $stdfile ]]; then
     while read line;do
       rollno=$(echo "$line" | grep "Rollno: " | awk '{print $2}')
        if [[ -n $rollno ]]; then
@@ -33,6 +34,7 @@ function defaulter(){
        	/dev/null 2>&1
        fi
     done < $stdfile/userdetails.txt
+   fi
    done
   done < studentDetails.txt 
 }
