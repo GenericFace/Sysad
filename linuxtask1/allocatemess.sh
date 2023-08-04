@@ -1,14 +1,16 @@
 #!/bin/bash
 
-chumma=1
+# i forgot why i created it but kept it as a joke
+chumma=1 
 
 echo "Enter Name"
 read name
 
+# user aunthentication
 if [[ $name == $(whoami) && $name != "had" ]]; then
   read -p "Enter Room: " room
   read -p "Enter Hostel: " hostel
-  declare -A messpref
+  declare -A messpref #associative array cuz im quirky
   echo "Enter mess preference order (Seperated By Line)"
   for i in "FirstPref" "SecondPref" "ThirdPref"; do
     read -r pref
@@ -18,6 +20,7 @@ if [[ $name == $(whoami) && $name != "had" ]]; then
   echo "$name $room $hostel" >> /home/had/mess.txt
 fi
 
+# when hostel admin runs it + user authetication
 if [[ $(whoami) == "had" ]]; then
 
   while IFS=: read -r key value; do
@@ -153,4 +156,3 @@ if [[ $(whoami) == "had" ]]; then
    done
   fi
 fi
-
